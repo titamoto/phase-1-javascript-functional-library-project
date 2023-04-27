@@ -11,14 +11,6 @@ function myMap(collection, callback) {
     return updatedCollection;  
 }
 
-// function myReduce(collection, callback, acc) {
-//     const newCollection = Array.isArray(collection) ? collection : Object.values(collection);
-//     for (const element of newCollection) { 
-//         if (acc === undefined ) {
-//         acc = callback(callback(newCollection[0], element, newCollection), element, newCollection.slice(1)) }
-//         else { acc = callback(acc, element, newCollection) } }
-//     return acc;
-// } 
 
 function myReduce(collection, callback, acc) {
     const newCollection = Array.isArray(collection) ? collection : Object.values(collection);
@@ -76,9 +68,17 @@ function myLast(array, n) {
     }
 
     function myKeys(object) {
-        return Object.keys(object);
+        const array = [];
+        for (const key in object) {
+            array.push(key);
+        }
+        return array;
     }
 
     function myValues(object) {
-        return Object.values(object);
+        const array = [];
+        for (const value in object) {
+            array.push(object[value]);
+        }
+        return array;
     }
